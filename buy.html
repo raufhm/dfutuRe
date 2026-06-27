@@ -380,6 +380,19 @@
   }
 </style>
 <style>.page-hero {padding:100px 0 40px;background:radial-gradient(circle at top right,var(--brand-peach) 0%,var(--white) 50%);text-align:center;}.preference-box {background:#f0fdf4;border-radius:18px;padding:28px;text-align:center;margin:40px auto 0;max-width:720px;}.preference-box button {margin-top:16px;}</style>
+#listingModal { position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(38,50,55,0.6);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:3000;padding:24px; }
+#listingModal.active { display:flex; }
+.listing-panel { background:var(--white);width:100%;max-width:720px;border-radius:24px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);position:relative;max-height:90vh;overflow-y:auto; }
+.listing-panel .close-btn { position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.9);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:20px;z-index:10;font-weight:bold; }
+.listing-panel .lp-image { height:280px;background-size:cover;background-position:center; }
+.listing-panel .lp-body { padding:28px 32px; }
+.listing-panel .lp-price { font-size:32px;font-weight:800;color:var(--dark); }
+.listing-panel .lp-psf { font-size:14px;color:var(--gray);margin-bottom:4px; }
+.listing-panel .lp-addr { font-size:16px;color:var(--dark);margin-bottom:16px; }
+.listing-panel .lp-desc { color:var(--gray);font-size:14px;line-height:1.7;margin-bottom:20px; }
+.listing-panel .lp-features { display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap; }
+.listing-panel .lp-feat { background:var(--light);border-radius:10px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--dark); }
+.listing-panel .lp-contact { background:var(--brand-green);color:#fff;border:none;padding:16px;border-radius:12px;font-weight:700;cursor:pointer;width:100%;font-size:15px; }
 </head>
 <body>
 <header>
@@ -399,16 +412,49 @@
   </div>
 </header>
 <section class="page-hero"><div class="container"><h1>Find your dream home</h1><p class="sub">Browse exclusive dfutuRe listings. Can't find what you want? Tell us your preference.</p></div></section>
-<section class="marketplace-section"><div class="container"><div class="section-header"><h2>Exclusive Buy Listings</h2><p>Verified listings, only from dfutuRe agents.</p></div><div class="marketplace-grid"><div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$1.3M</div><div class="l-psf">S$1250 psf</div><div class="l-addr">Buy Street 1, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="openForm('Buy Property','buy')">I'm Interested</button></div></div>
-<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$1.5M</div><div class="l-psf">S$1300 psf</div><div class="l-addr">Buy Street 2, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="openForm('Buy Property','buy')">I'm Interested</button></div></div>
-<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$1.6M</div><div class="l-psf">S$1350 psf</div><div class="l-addr">Buy Street 3, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="openForm('Buy Property','buy')">I'm Interested</button></div></div>
-<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$1.8M</div><div class="l-psf">S$1400 psf</div><div class="l-addr">Buy Street 4, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="openForm('Buy Property','buy')">I'm Interested</button></div></div>
-<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$1.9M</div><div class="l-psf">S$1450 psf</div><div class="l-addr">Buy Street 5, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="openForm('Buy Property','buy')">I'm Interested</button></div></div>
-<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$2.1M</div><div class="l-psf">S$1500 psf</div><div class="l-addr">Buy Street 6, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="openForm('Buy Property','buy')">I'm Interested</button></div></div>
-<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$2.2M</div><div class="l-psf">S$1550 psf</div><div class="l-addr">Buy Street 7, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="openForm('Buy Property','buy')">I'm Interested</button></div></div>
-<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$2.4M</div><div class="l-psf">S$1600 psf</div><div class="l-addr">Buy Street 8, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="openForm('Buy Property','buy')">I'm Interested</button></div></div>
-<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$2.5M</div><div class="l-psf">S$1650 psf</div><div class="l-addr">Buy Street 9, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="openForm('Buy Property','buy')">I'm Interested</button></div></div>
+<section class="marketplace-section"><div class="container"><div class="section-header"><h2>Exclusive Listings</h2><p>Verified listings, only from dfutuRe agents.</p></div><div class="marketplace-grid"><div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$1.3M</div><div class="l-psf">S$1250 psf</div><div class="l-addr">Buy Street 1, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="showListing(this,'buy')" >View Details</button></div></div>
+<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$1.5M</div><div class="l-psf">S$1300 psf</div><div class="l-addr">Buy Street 2, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="showListing(this,'buy')" >View Details</button></div></div>
+<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$1.6M</div><div class="l-psf">S$1350 psf</div><div class="l-addr">Buy Street 3, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="showListing(this,'buy')" >View Details</button></div></div>
+<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$1.8M</div><div class="l-psf">S$1400 psf</div><div class="l-addr">Buy Street 4, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="showListing(this,'buy')" >View Details</button></div></div>
+<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$1.9M</div><div class="l-psf">S$1450 psf</div><div class="l-addr">Buy Street 5, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="showListing(this,'buy')" >View Details</button></div></div>
+<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$2.1M</div><div class="l-psf">S$1500 psf</div><div class="l-addr">Buy Street 6, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="showListing(this,'buy')" >View Details</button></div></div>
+<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$2.2M</div><div class="l-psf">S$1550 psf</div><div class="l-addr">Buy Street 7, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="showListing(this,'buy')" >View Details</button></div></div>
+<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$2.4M</div><div class="l-psf">S$1600 psf</div><div class="l-addr">Buy Street 8, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="showListing(this,'buy')" >View Details</button></div></div>
+<div class="marketplace-card animate"><div class="l-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Property" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fde68a,#fcd34d)'"></div><div class="l-body"><div class="l-price">S$2.5M</div><div class="l-psf">S$1650 psf</div><div class="l-addr">Buy Street 9, Singapore</div><div class="l-tags"><span class="l-tag">3 Bed</span><span class="l-tag">HDB</span></div><button class="l-btn" onclick="showListing(this,'buy')" >View Details</button></div></div>
 </div><div class="preference-box"><h3>Can't find what you're looking for?</h3><p style="color:var(--gray);margin-bottom:16px">Leave your preference and we'll WhatsApp you matching properties as soon as they come online.</p><button class="btn-whatsapp" onclick="openForm('Buy Preference','buy')">💬 Tell Us Your Preference</button></div></div></section>
+
+<!-- LISTING DETAIL MODAL -->
+<div id="listingModal">
+  <div class="listing-panel">
+    <button class="close-btn" onclick="document.getElementById('listingModal').classList.remove('active')">&times;</button>
+    <div class="lp-image" id="lpImage" style="background-image:url('')"></div>
+    <div class="lp-body">
+      <div class="lp-price" id="lpPrice">S$0</div>
+      <div class="lp-psf" id="lpPsf">S$0 psf</div>
+      <div class="lp-addr" id="lpAddr">—</div>
+      <div class="lp-desc" id="lpDesc">Beautiful 3-bedroom unit in a prime location. Well-maintained with high floor, unblocked views, and close to MRT, schools, and amenities. Ideal for families and young professionals.</div>
+      <div class="lp-features" id="lpFeatures">
+        <span class="lp-feat">&#x1f3e0; 3 Bedrooms</span>
+        <span class="lp-feat">&#x1f6bf; 2 Bathrooms</span>
+        <span class="lp-feat">&#x1f4cf; 1,100 sqft</span>
+        <span class="lp-feat">&#x1f3e2; 99-yr Leasehold</span>
+        <span class="lp-feat">&#x1f3af; TOP 2020</span>
+      </div>
+      <div class="lp-section" style="margin-bottom:20px;">
+        <h4 style="font-size:15px;font-weight:700;margin-bottom:10px;color:var(--dark);">&#x1f4cd; Location &amp; Amenities</h4>
+        <table style="width:100%;font-size:13px;border-collapse:collapse;">
+          <tr><td style="padding:8px 0;color:var(--gray);">&#x1f687; Nearest MRT</td><td style="padding:8px 0;font-weight:600;text-align:right;">Bishan MRT (NS17/CC15)</td></tr>
+          <tr><td style="padding:8px 0;color:var(--gray);">&#x1f3eb; Nearest School</td><td style="padding:8px 0;font-weight:600;text-align:right;">Raffles Institution</td></tr>
+          <tr><td style="padding:8px 0;color:var(--gray);">&#x1f3ea; Nearest Mall</td><td style="padding:8px 0;font-weight:600;text-align:right;">Junction 8</td></tr>
+          <tr><td style="padding:8px 0;color:var(--gray);">&#x1f331; Nearest Park</td><td style="padding:8px 0;font-weight:600;text-align:right;">Bishan-Ang Mo Kio Park</td></tr>
+          <tr><td style="padding:8px 0;color:var(--gray);">&#x1f3e1; Neighbourhood</td><td style="padding:8px 0;font-weight:600;text-align:right;">Mature Estate</td></tr>
+          <tr><td style="padding:8px 0;color:var(--gray);">&#x1f4b0; Monthly Conservancy</td><td style="padding:8px 0;font-weight:600;text-align:right;">S$ 89.50</td></tr>
+        </table>
+      </div>
+      <button class="lp-contact" id="lpContactBtn">&#x1f4ac; Enquire About This Property</button>
+    </div>
+  </div>
+</div>
 <!-- UNIFIED FORM MODAL -->
 <div id="formOverlay">
   <div class="form-panel">
@@ -594,6 +640,20 @@
       if (!navMenu.contains(e.target)) navMenuDropdown.classList.remove('open');
     });
   }
+
+function showListing(btn, intent) {
+  var card = btn.closest('.marketplace-card');
+  var img = card.querySelector('.l-image img').src || '';
+  var price = card.querySelector('.l-price').textContent;
+  var psf = card.querySelector('.l-psf').textContent;
+  var addr = card.querySelector('.l-addr').textContent;
+  document.getElementById('lpImage').style.backgroundImage = 'url(' + img + ')';
+  document.getElementById('lpPrice').textContent = price;
+  document.getElementById('lpPsf').textContent = psf;
+  document.getElementById('lpAddr').textContent = addr;
+  document.getElementById('lpContactBtn').onclick = function() { openForm('Enquire - ' + addr, intent); document.getElementById('listingModal').classList.remove('active'); };
+  document.getElementById('listingModal').classList.add('active');
+}
 </script>
 </body>
 </html>
