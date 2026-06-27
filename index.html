@@ -533,35 +533,35 @@
     </div>
 
     <div class="service-cards">
-      <div class="service-card primary animate delay-1" onclick="showListingHome(this,'Sell Property','selling')">
+      <div class="service-card primary animate delay-1" onclick="openForm('Sell Property','selling')">
         <span class="s-badge">1% fee</span>
         <div class="s-icon">🏠</div><div class="s-name">Sell Property</div><div class="s-desc">Get the best price. Our Agents handle everything — valuation, photos, viewings, negotiation.</div><div class="s-cta">Sell with us →</div>
       </div>
-      <div class="service-card primary animate delay-1" onclick="showListingHome(this,'Buy Property','buying')">
+      <div class="service-card primary animate delay-1" onclick="openForm('Buy Property','buying')">
         <span class="s-badge">Free match</span>
         <div class="s-icon">🔑</div><div class="s-name">Buy Property</div><div class="s-desc">Access verified listings. We match you to the right home, arrange viewings, handle paperwork.</div><div class="s-cta">Find your home →</div>
       </div>
-      <div class="service-card animate delay-2" onclick="showListingHome(this,'Mortgage','mortgage')">
+      <div class="service-card animate delay-2" onclick="openForm('Mortgage','mortgage')">
         <span class="s-badge">Best rates</span>
         <div class="s-icon">💸</div><div class="s-name">Mortgage</div><div class="s-desc">Compare bank rates.</div><div class="s-cta">Compare →</div>
       </div>
-      <div class="service-card animate delay-2" onclick="showListingHome(this,'Insurance','insurance')">
+      <div class="service-card animate delay-2" onclick="openForm('Insurance','insurance')">
         <span class="s-badge">Free basic</span>
         <div class="s-icon">🛡️</div><div class="s-name">Insurance</div><div class="s-desc">Free home cover.</div><div class="s-cta">Get covered →</div>
       </div>
-      <div class="service-card primary animate delay-2" onclick="showListingHome(this,'Landlord','landlord')">
+      <div class="service-card primary animate delay-2" onclick="openForm('Landlord','landlord')">
         <span class="s-badge">1 mo rent</span>
         <div class="s-icon">🗝️</div><div class="s-name">Landlord</div><div class="s-desc">Find quality tenants fast. We screen, arrange viewings, handle lease & stamp duty.</div><div class="s-cta">List your property →</div>
       </div>
-      <div class="service-card primary animate delay-2" onclick="showListingHome(this,'Rent (Tenant)','renting')">
+      <div class="service-card primary animate delay-2" onclick="openForm('Rent (Tenant)','renting')">
         <span class="s-badge">No fee</span>
         <div class="s-icon">🏢</div><div class="s-name">Find a Rental</div><div class="s-desc">Browse rental listings. We match you to the right place, arrange viewings, handle the lease.</div><div class="s-cta">Find a rental →</div>
       </div>
-      <div class="service-card animate delay-3" onclick="showListingHome(this,'Renovation','renovation')">
+      <div class="service-card animate delay-3" onclick="openForm('Renovation','renovation')">
         <span class="s-badge">DreamR</span>
         <div class="s-icon">🔨</div><div class="s-name">Renovation</div><div class="s-desc">Transform with DreamR.</div><div class="s-cta">Get a quote →</div>
       </div>
-      <div class="service-card animate delay-3" onclick="showListingHome(this,'Conveyancing','legal')">
+      <div class="service-card animate delay-3" onclick="openForm('Conveyancing','legal')">
         <span class="s-badge">Fixed fee</span>
         <div class="s-icon">⚖️</div><div class="s-name">Conveyancing</div><div class="s-desc">End-to-end legal.</div><div class="s-cta">Meet lawyer →</div>
       </div>
@@ -570,7 +570,7 @@
     <div class="inline-connect animate">
       <span class="label">📍 Know your value?</span>
       <span class="desc">Connect your house for free monthly WhatsApp updates.</span>
-      <button onclick="showListingHome(this,'','connect')">CONNECT</button>
+      <button onclick="openForm('','connect')">CONNECT</button>
     </div>
   </div>
 </section>
@@ -928,6 +928,22 @@
       if (!navMenu.contains(e.target)) navMenuDropdown.classList.remove('open');
     });
   }
+
+function showListingHome(btn) {
+  var card = btn.closest('.listing-card');
+  if (!card) return;
+  var img = card.querySelector('.l-image img').src || '';
+  var price = card.querySelector('.l-price').textContent.trim();
+  var addrTxt = card.querySelector('.l-addr').textContent.trim();
+  var psfEl = card.querySelector('.l-meta span:last-child');
+  var psf = psfEl ? psfEl.textContent.trim() : '';
+  document.getElementById('lpImage').style.backgroundImage = "url(" + img + ")";
+  document.getElementById('lpPrice').textContent = price;
+  document.getElementById('lpPsf').textContent = psf;
+  document.getElementById('lpAddr').textContent = addrTxt;
+  document.getElementById('lpContactBtn').onclick = function() { openForm("Enquire - " + addrTxt, "viewing"); document.getElementById("listingModal").classList.remove("active"); };
+  document.getElementById('listingModal').classList.add('active');
+}
 </script>
 
 
