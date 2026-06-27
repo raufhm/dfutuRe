@@ -537,7 +537,6 @@
         <button class="segment-tab active" onclick="switchSegment(this,'buy')" style="padding:10px 24px;border:none;background:transparent;font-weight:600;font-size:15px;color:var(--gray);cursor:pointer;border-radius:8px 8px 0 0;font-family:inherit;">&#x1f511; Buy</button>
         <button class="segment-tab" onclick="switchSegment(this,'rent')" style="padding:10px 24px;border:none;background:transparent;font-weight:600;font-size:15px;color:var(--gray);cursor:pointer;border-radius:8px 8px 0 0;font-family:inherit;">&#x1f3e2; Rent</button>
         <button class="segment-tab" onclick="switchSegment(this,'sell')" style="padding:10px 24px;border:none;background:transparent;font-weight:600;font-size:15px;color:var(--gray);cursor:pointer;border-radius:8px 8px 0 0;font-family:inherit;">&#x1f3e0; Sell</button>
-        <button class="segment-tab" onclick="switchSegment(this,'landlord')" style="padding:10px 24px;border:none;background:transparent;font-weight:600;font-size:15px;color:var(--gray);cursor:pointer;border-radius:8px 8px 0 0;font-family:inherit;">&#x1f3e1; Landlord</button>
       </div>
       <div id="segmentContent">
         <div class="segment-fields" id="segmentBuy" style="display:flex;flex-wrap:wrap;gap:12px;">
@@ -559,12 +558,6 @@
           <select style="flex:1;min-width:140px;padding:14px 18px;border:1px solid var(--border);border-radius:10px;font-size:14px;background:var(--white);color:var(--dark);"><option>Property Type</option><option>HDB</option><option>Condo</option><option>Landed</option></select>
           <input type="text" placeholder="Size (sqft)" style="flex:1;min-width:100px;padding:14px 18px;border:1px solid var(--border);border-radius:10px;font-size:14px;">
           <button onclick="window.location.href='sell.html'" style="flex:0 0 auto;padding:14px 32px;background:var(--brand-green);color:#fff;border:none;border-radius:10px;font-weight:700;cursor:pointer;font-size:14px;">Get Valuation</button>
-        </div>
-        <div class="segment-fields" id="segmentLandlord" style="display:none;flex-wrap:wrap;gap:12px;">
-          <input type="text" placeholder="Your property address..." style="flex:2;min-width:200px;padding:14px 18px;border:1px solid var(--border);border-radius:10px;font-size:14px;">
-          <select style="flex:1;min-width:140px;padding:14px 18px;border:1px solid var(--border);border-radius:10px;font-size:14px;background:var(--white);color:var(--dark);"><option>Property Type</option><option>HDB</option><option>Condo</option><option>Landed</option></select>
-          <input type="text" placeholder="Expected rent (S$)" style="flex:1;min-width:100px;padding:14px 18px;border:1px solid var(--border);border-radius:10px;font-size:14px;">
-          <button onclick="window.location.href='landlord.html'" style="flex:0 0 auto;padding:14px 32px;background:var(--brand-green);color:#fff;border:none;border-radius:10px;font-weight:700;cursor:pointer;font-size:14px;">Check Demand</button>
         </div>
       </div>
     </div>
